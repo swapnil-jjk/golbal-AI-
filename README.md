@@ -2,6 +2,18 @@
 
 StaleAnswer AI identifies claims in AI-generated answers, checks them against live web research, and explains whether the evidence is current. The Streamlit interface uses a black, earthy design system: forest green actions, warm beige typography, terracotta warnings, and slate-neutral surfaces.
 
+## Problem statement coverage
+
+This prototype implements the attached Stale-Answer Detector brief:
+
+- Claim identification: extracts independent, deduplicated factual claims from an LLM-generated answer.
+- Freshness detection: flags claims as potentially outdated, conflicting, verified, or unable to verify.
+- Live verification: researches every claim with Tavily and evaluates the returned evidence through Bifrost by Maxim AI.
+- Freshness scoring: gives every claim a transparent score and rolls those scores into an overall answer freshness score.
+- Usable prototype flow: includes progress feedback, a persistent report view, recent-check history in the sidebar, source links, and PDF export.
+
+The optional guidance in the brief is treated as product direction rather than hard-coded domain assumptions: the same workflow can check pricing, API documentation, regulations, leadership, announcements, and other time-sensitive claims.
+
 ## Authentication and request flow
 
 Credentials are loaded from the process environment via `python-dotenv`; they are never hard-coded or sent to the browser.
