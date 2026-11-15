@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="StaleAnswer AI - live freshness verification for AI-generated answers">
+  <title>StaleAnswer AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">✦</span><span>StaleAnswer <em>AI</em></span></div>
+      <p class="sidebar-copy">A freshness layer for confident answers.</p>
+      <div class="sidebar-rule"></div>
+      <div class="pipeline-label">Pipeline</div>
+      <ol class="pipeline">
+        <li><span>01</span> Extract claims</li>
+        <li><span>02</span> Research with Tavily</li>
+        <li><span>03</span> Verify with Bifrost</li>
+        <li><span>04</span> Score freshness</li>
+      </ol>
+      <div class="sidebar-bottom"><span class="live-dot"></span> Live verification</div>
+    </aside>
+
+    <main class="main-content">
+      <header class="hero">
+        <div class="eyebrow">Problem statement 06 · Live verification</div>
+        <h1>Find the claims<br><span>that time forgot.</span></h1>
+        <p class="lede">Paste an AI-generated answer and turn uncertainty into a clear, source-backed freshness report.</p>
+      </header>
+
+      <section class="workspace-grid">
+        <div class="input-panel panel">
+          <div class="section-heading"><span>01</span><h2>Submit an answer</h2></div>
+          <label class="sr-only" for="answer-input">AI-generated answer</label>
+          <textarea id="answer-input" placeholder="Paste an AI-generated answer here...&#10;&#10;Tip: include pricing, API versions, regulations, dates, or leadership claims to see freshness detection in action."></textarea>
+          <div class="input-footer"><span id="char-count">0 characters</span><button id="check-button" class="primary-button">Check answer <span>→</span></button></div>
+        </div>
+        <div class="guide-panel panel">
+          <div class="section-heading"><span>How it works</span></div>
+          <div class="guide-item"><b>Claim identification</b><p>Independent factual statements are extracted and deduplicated.</p></div>
+          <div class="guide-item"><b>Freshness detection</b><p>Time-sensitive claims are surfaced for review.</p></div>
+          <div class="guide-item"><b>Live verification</b><p>Tavily retrieves sources; Bifrost evaluates the evidence.</p></div>
+        </div>
+      </section>
+
+      <section id="status-panel" class="status-panel hidden"><span class="spinner"></span><span id="status-text">Running live verification...</span></section>
+      <section id="error-panel" class="error-panel hidden"></section>
+
+      <section id="report" class="report hidden">
+        <div class="section-heading"><span>02</span><h2>Verification report</h2></div>
+        <div class="summary-grid">
+          <article class="metric-card"><div class="metric-label">Overall freshness</div><div id="score-value" class="metric-value">--</div><div class="metric-sub">Heuristic evidence score</div></article>
+          <article class="metric-card"><div class="metric-label">Claims checked</div><div id="claims-value" class="metric-value">--</div><div class="metric-sub">Independent claims</div></article>
+          <article class="metric-card"><div class="metric-label">Verified</div><div id="verified-value" class="metric-value">--</div><div class="metric-sub">Supported by evidence</div></article>
+          <article class="metric-card"><div class="metric-label">Needs review</div><div id="review-value" class="metric-value">--</div><div class="metric-sub">Outdated or conflicting</div></article>
+        </div>
+        <div class="progress-track"><div id="progress-bar" class="progress-bar"></div></div>
+        <p class="disclaimer">A transparent heuristic based on verification statuses - not a probability that the answer is true.</p>
+        <div id="claim-list" class="claim-list"></div>
+      </section>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
+
