@@ -57,5 +57,15 @@ npx -y @maximhq/bifrost
 streamlit run app.py
 ```
 
+## Run the HTML/CSS dashboard
+
+The repository also includes a standalone responsive dashboard backed by the same real Tavily and Bifrost pipeline. It uses the Python standard library server, so no frontend framework or extra dependency is required.
+
+```bash
+python dashboard_server.py
+```
+
+Open `http://127.0.0.1:8000` in your browser. The dashboard posts answers to `/api/analyze`; it does not use mock results. Keep the same `.env` configuration and start Bifrost before submitting an answer.
+
 Run tests with `python -m pytest -q` when the test suite is present.
 
